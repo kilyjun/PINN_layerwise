@@ -1,0 +1,45 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -n 64
+#SBATCH --gpus-per-node=1
+#SBATCH -A standby
+#SBATCH --job-name=Additive_AnisotropicCond_conve
+#SBATCH -t 4:00:00
+#SBATCH -e process_%j.err
+#SBATCH -o process_%j.out
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-user=ajacobth@purdue.edu
+
+module --force purge
+module load anaconda/2020.11-py38
+module load cuda/12.1.1
+module load cudnn/cuda-12.1_8.9
+module load use.own
+module load conda-env/jax-pi
+module load texlive/20200406
+
+
+#python main.py --config=configs/case_1.py
+#python main.py --config=configs/case_1.py --config.mode=eval
+
+
+#python main.py --config=configs/case_2.py
+#python main.py --config=configs/case_2.py --config.mode=eval
+
+
+#python main.py --config=configs/case_3.py
+#python main.py --config=configs/case_3.py --config.mode=eval
+
+
+
+python main.py --config=configs/case_4.py
+python main.py --config=configs/case_4.py --config.mode=eval
+
+
+
+#python main.py --config=configs/case_5.py
+#python main.py --config=configs/case_5.py --config.mode=eval
+
+
+#python main.py --config=configs/case_6.py
+#python main.py --config=configs/case_6.py --config.mode=eval
