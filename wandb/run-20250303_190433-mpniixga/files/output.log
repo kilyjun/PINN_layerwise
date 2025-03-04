@@ -1,0 +1,37 @@
+Waiting for JIT...
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/main.py", line 40, in <module>
+    app.run(main)
+  File "/Users/akshayjacobthomas/anaconda3/envs/jax_trial/lib/python3.9/site-packages/absl/app.py", line 308, in run
+    _run_main(main, args)
+  File "/Users/akshayjacobthomas/anaconda3/envs/jax_trial/lib/python3.9/site-packages/absl/app.py", line 254, in _run_main
+    sys.exit(main(argv))
+  File "/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/main.py", line 32, in main
+    train.train_and_evaluate(FLAGS.config, FLAGS.workdir)
+  File "/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/train.py", line 94, in train_and_evaluate
+    model.state = model.step(model.state, time_batch, batch_initial, step_batch)
+  File "/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/models.py", line 169, in step
+    grads = grad(self.loss)(state.params, state.weights, time_batch, batch_initial,*args)
+  File "/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/models.py", line 125, in loss
+    losses = self.losses(params, time_batch, batch_initial, *args)
+  File "/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/models.py", line 888, in losses
+    res_loss = jnp.mean(vmap(self.delta_time_loss, (None, 0, 0))(params, args[0], time_batch))
+  File "/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/models.py", line 831, in delta_time_loss
+    batch = self.seqSampler(step[0], time)
+  File "/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py", line 37, in __call__
+    batch = self.data_generation(keys, time)
+  File "/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py", line 486, in data_generation
+    x_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+  File "/Users/akshayjacobthomas/anaconda3/envs/jax_trial/lib/python3.9/site-packages/jax/_src/random.py", line 390, in uniform
+    key, _ = _check_prng_key("uniform", key)
+  File "/Users/akshayjacobthomas/anaconda3/envs/jax_trial/lib/python3.9/site-packages/jax/_src/random.py", line 83, in _check_prng_key
+    wrapped_key = prng.random_wrap(key, impl=default_prng_impl())
+  File "/Users/akshayjacobthomas/anaconda3/envs/jax_trial/lib/python3.9/site-packages/jax/_src/prng.py", line 812, in random_wrap
+    _check_prng_key_data(impl, base_arr)
+  File "/Users/akshayjacobthomas/anaconda3/envs/jax_trial/lib/python3.9/site-packages/jax/_src/prng.py", line 129, in _check_prng_key_data
+    raise TypeError("JAX encountered invalid PRNG key data: expected "
+TypeError: JAX encountered invalid PRNG key data: expected key_data.ndim >= 1; got ndim=0

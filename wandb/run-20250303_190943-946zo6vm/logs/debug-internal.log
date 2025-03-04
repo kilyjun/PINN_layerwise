@@ -1,0 +1,7 @@
+{"time":"2025-03-03T19:09:43.14593-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/wandb/run-20250303_190943-946zo6vm/logs/debug-core.log"}
+{"time":"2025-03-03T19:09:43.252604-05:00","level":"INFO","msg":"created new stream","id":"946zo6vm"}
+{"time":"2025-03-03T19:09:43.252648-05:00","level":"INFO","msg":"stream: started","id":"946zo6vm"}
+{"time":"2025-03-03T19:09:43.252657-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"946zo6vm"}
+{"time":"2025-03-03T19:09:43.252666-05:00","level":"INFO","msg":"handler: started","stream_id":"946zo6vm"}
+{"time":"2025-03-03T19:09:43.252741-05:00","level":"INFO","msg":"sender: started","stream_id":"946zo6vm"}
+{"time":"2025-03-03T19:09:43.419075-05:00","level":"INFO","msg":"Starting system monitor"}

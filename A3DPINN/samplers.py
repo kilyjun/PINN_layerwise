@@ -463,6 +463,14 @@ class SeqInitialBoundarySampler3D(SeqBaseSampler):
 
 ############################################### Layerwise samplers #####################################################
 
+import jax 
+from jax import lax
+def get_replica_id():
+    if jax.device_count() > 1:
+        return lax.replica_id()
+    else:
+        return 0
+    
 
 class MultiLayerCollocationSampler3D(SeqBaseSampler):
     def __init__(
@@ -478,19 +486,14 @@ class MultiLayerCollocationSampler3D(SeqBaseSampler):
         self.layer_height = layer_height
         self.x_max = x_max
         self.y_max = y_max
-
-    def __call__(self, step, time):
-        key = random.PRNGKey(step)  # Generate key from step
-        subkeys = random.split(key, 3)  # Split into 3 subkeys for x, y, z
-        batch = self.data_generation(subkeys, time)
-        return batch
-
+    
+    #@partial(pmap, static_broadcasted_argnums=(0,))
     def data_generation(self, subkeys, time):
         i = jnp.floor(time / self.t_L).astype(int)
         z_top = (i + 1) * self.layer_height
-        x_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
-        y_batch = random.uniform(subkeys[1], shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
-        z_batch = random.uniform(subkeys[2], shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
+        x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+        y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+        z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
         t_col = jnp.ones_like(x_batch) * time
         return jnp.concatenate([t_col, x_batch, y_batch, z_batch], axis=1)
 
@@ -503,17 +506,12 @@ class MultiLayerBedTemperatureSampler3D(SeqBaseSampler):
         self.x_max = x_max
         self.y_max = y_max
 
-    def __call__(self, step, time):
-        key = random.PRNGKey(step)  # Generate key from step
-        subkeys = random.split(key, 2)  # Split into 2 subkeys for x, y
-        batch = self.data_generation(subkeys, time)
-        return batch
 
     def data_generation(self, subkeys, time):
-        i = jnp.floor(time / self.t_L).astype(int)
-        z_top = (i + 1) * self.layer_height
-        x_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
-        y_batch =	random.uniform(subkeys[1], shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+        #i = jnp.floor(time / self.t_L).astype(int)
+        #z_top = (i + 1) * self.layer_height
+        x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+        y_batch =	random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
         z_batch = jnp.zeros((self.batch_size, 1))  # Fixed at z=0
         t_col = jnp.ones_like(x_batch) * time
         return jnp.concatenate([t_col, x_batch, y_batch, z_batch], axis=1)
@@ -538,17 +536,12 @@ class MultiLayerTopBoundarySampler3D(SeqBaseSampler):
         self.x_max = x_max
         self.y_max = y_max
 
-    def __call__(self, step, time):
-        key = random.PRNGKey(step)  # Generate key from step
-        subkeys = random.split(key, 2)  # Split into 2 subkeys for x and y
-        batch = self.data_generation(subkeys, time)
-        return batch
 
     def data_generation(self, subkeys, time):
         i = jnp.floor(time / self.t_L).astype(int)
         z_top = (i + 1) * self.layer_height
-        x_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
-        y_batch = random.uniform(subkeys[1], shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+        x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+        y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
         z_batch = jnp.ones((self.batch_size, 1)) * z_top  # Fixed at z = z_top
         t_col = jnp.ones_like(x_batch) * time
         return jnp.concatenate([t_col, x_batch, y_batch, z_batch], axis=1)
@@ -572,18 +565,13 @@ class MultiLayerX0Sampler3D(SeqBaseSampler):
         self.x_max = x_max
         self.y_max = y_max
 
-    def __call__(self, step, time):
-        key = random.PRNGKey(step)  # Generate key from step
-        subkeys = random.split(key, 2)  # Split into 2 subkeys for y and z
-        batch = self.data_generation(subkeys, time)
-        return batch
 
     def data_generation(self, subkeys, time):
         i = jnp.floor(time / self.t_L).astype(int)
         z_top = (i + 1) * self.layer_height
         x_batch = jnp.zeros((self.batch_size, 1))  # Fixed at x=0
-        y_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
-        z_batch = random.uniform(subkeys[1], shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
+        y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+        z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
         t_col = jnp.ones_like(x_batch) * time
         return jnp.concatenate([t_col, x_batch, y_batch, z_batch], axis=1)
 
@@ -607,18 +595,13 @@ class MultiLayerXMaxSampler3D(SeqBaseSampler):
         self.x_max = x_max
         self.y_max = y_max
 
-    def __call__(self, step, time):
-        key = random.PRNGKey(step)  # Generate key from step
-        subkeys = random.split(key, 2)  # Split into 2 subkeys for y and z
-        batch = self.data_generation(subkeys, time)
-        return batch
 
     def data_generation(self, subkeys, time):
         i = jnp.floor(time / self.t_L).astype(int)
         z_top = (i + 1) * self.layer_height
         x_batch = jnp.ones((self.batch_size, 1)) * self.x_max  # Fixed at x=x_max
-        y_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
-        z_batch = random.uniform(subkeys[1], shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
+        y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+        z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
         t_col = jnp.ones_like(x_batch) * time
         return jnp.concatenate([t_col, x_batch, y_batch, z_batch], axis=1)
 
@@ -641,18 +624,12 @@ class MultiLayerY0Sampler3D(SeqBaseSampler):
         self.x_max = x_max
         self.y_max = y_max
 
-    def __call__(self, step, time):
-        key = random.PRNGKey(step)  # Generate key from step
-        subkeys = random.split(key, 2)  # Split into 2 subkeys for x and z
-        batch = self.data_generation(subkeys, time)
-        return batch
-
     def data_generation(self, subkeys, time):
         i = jnp.floor(time / self.t_L).astype(int)
         z_top = (i + 1) * self.layer_height
-        x_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+        x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
         y_batch = jnp.zeros((self.batch_size, 1))  # Fixed at y=0
-        z_batch = random.uniform(subkeys[1], shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
+        z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
         t_col = jnp.ones_like(x_batch) * time
         return jnp.concatenate([t_col, x_batch, y_batch, z_batch], axis=1)
 
@@ -674,18 +651,13 @@ class MultiLayerYMaxSampler3D(SeqBaseSampler):
         self.x_max = x_max
         self.y_max = y_max
 
-    def __call__(self, step, time):
-        key = random.PRNGKey(step)  # Generate key from step
-        subkeys = random.split(key, 2)  # Split into 2 subkeys for x and z
-        batch = self.data_generation(subkeys, time)
-        return batch
 
     def data_generation(self, subkeys, time):
         i = jnp.floor(time / self.t_L).astype(int)
         z_top = (i + 1) * self.layer_height
-        x_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+        x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
         y_batch = jnp.ones((self.batch_size, 1)) * self.y_max  # Fixed at y=y_max
-        z_batch = random.uniform(subkeys[1], shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
+        z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
         t_col = jnp.ones_like(x_batch) * time
         return jnp.concatenate([t_col, x_batch, y_batch, z_batch], axis=1)
 
@@ -704,19 +676,13 @@ class MultiLayerInitialConditionSampler3D(SeqBaseSampler):
         self.x_max = x_max
         self.y_max = y_max
 
-    def __call__(self, step, time):
-        key = random.PRNGKey(step)  # Generate key from step
-        subkeys = random.split(key, 3)  # Split into 3 subkeys for x, y, z
-        batch = self.data_generation(subkeys, time)
-        return batch
-
     def data_generation(self, subkeys, time):
         i = jnp.floor(time / self.t_L).astype(int)
         z_min = i * self.layer_height
         z_max = (i + 1) * self.layer_height
-        x_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
-        y_batch = random.uniform(subkeys[1], shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
-        z_batch = random.uniform(subkeys[2], shape=(self.batch_size, 1), minval=z_min, maxval=z_max)
+        x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+        y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+        z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=z_min, maxval=z_max)
         t_col = jnp.ones_like(x_batch) * (i * self.t_L)
         print(f"Step: {i}, t: {t_col[0,0]}, z_range: [{z_min}, {z_max}]")
         return jnp.concatenate([t_col, x_batch, y_batch, z_batch], axis=1)
@@ -736,19 +702,13 @@ class MultiLayerPrevInitialConditionSampler3D(SeqBaseSampler):
         self.x_max = x_max
         self.y_max = y_max
 
-    def __call__(self, step, time):
-        key = random.PRNGKey(step)  # Generate key from step
-        subkeys = random.split(key, 3)  # Split into 3 subkeys for x, y, z
-        batch = self.data_generation(subkeys, time)
-        return batch
-
     def data_generation(self, subkeys, time):
         i = jnp.floor(time / self.t_L).astype(int)
         z_min = 0.0
         z_max = i * self.layer_height
-        x_batch = random.uniform(subkeys[0], shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
-        y_batch = random.uniform(subkeys[1], shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
-        z_batch = random.uniform(subkeys[2], shape=(self.batch_size, 1), minval=z_min, maxval=z_max)
+        x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+        y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+        z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=z_min, maxval=z_max)
         t_col = jnp.ones_like(x_batch) * time
         return jnp.concatenate([t_col, x_batch, y_batch, z_batch], axis=1)
 

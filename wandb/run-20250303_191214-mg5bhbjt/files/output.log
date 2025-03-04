@@ -1,0 +1,189 @@
+Waiting for JIT...
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:494: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:495: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:496: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:513: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:514: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  y_batch =	random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:543: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:544: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:683: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:684: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:685: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=z_min, maxval=z_max)
+Step: Traced<ShapedArray(int32[1])>with<DynamicJaxprTrace(level=5/1)>, t: Traced<ShapedArray(float32[])>with<DynamicJaxprTrace(level=5/1)>, z_range: [Traced<ShapedArray(float32[1], weak_type=True)>with<DynamicJaxprTrace(level=5/1)>, Traced<ShapedArray(float32[1], weak_type=True)>with<DynamicJaxprTrace(level=5/1)>]
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:494: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:495: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:496: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=z_top)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:513: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:514: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  y_batch =	random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:543: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:544: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:683: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  x_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.x_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:684: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  y_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=0.0, maxval=self.y_max)
+/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/A3DPINN/samplers.py:685: FutureWarning: uniform accepts a single key, but was given a key array of shape (1, 2) != (). Use jax.vmap for batching. In a future JAX version, this will be an error.
+  z_batch = random.uniform(subkeys, shape=(self.batch_size, 1), minval=z_min, maxval=z_max)
+Step: Traced<ShapedArray(int32[1])>with<DynamicJaxprTrace(level=2/0)>, t: Traced<ShapedArray(float32[])>with<DynamicJaxprTrace(level=2/0)>, z_range: [Traced<ShapedArray(float32[1], weak_type=True)>with<DynamicJaxprTrace(level=2/0)>, Traced<ShapedArray(float32[1], weak_type=True)>with<DynamicJaxprTrace(level=2/0)>]
+I0303 19:12:35.824997 8289863744 utils.py:148] Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+I0303 19:12:35.825171 8289863744 utils.py:160] NumExpr defaulting to 8 threads.
+[19:12:35 - main - INFO] ------------------------------------
+[19:12:35 - main - INFO] Iter:   0             Time: 19.369
+[19:12:35 - main - INFO] --------------------  --------------
+[19:12:35 - main - INFO] bed_temperature_loss  3.974e-01
+[19:12:35 - main - INFO] res_loss              1.299e+00
+[19:12:35 - main - INFO] convection_zmax_loss  5.556e+04
+[19:12:35 - main - INFO] ic_new_layer_loss     1.753e+00
+[19:12:42 - main - INFO] -----------------------------------
+[19:12:42 - main - INFO] Iter: 100             Time: 0.332
+[19:12:42 - main - INFO] --------------------  -------------
+[19:12:42 - main - INFO] bed_temperature_loss  1.166e-01
+[19:12:42 - main - INFO] res_loss              1.928e-01
+[19:12:42 - main - INFO] convection_zmax_loss  2.447e+00
+[19:12:42 - main - INFO] ic_new_layer_loss     4.595e-01
+[19:12:47 - main - INFO] -----------------------------------
+[19:12:47 - main - INFO] Iter: 200             Time: 0.327
+[19:12:47 - main - INFO] --------------------  -------------
+[19:12:47 - main - INFO] bed_temperature_loss  2.279e-02
+[19:12:47 - main - INFO] res_loss              1.277e-01
+[19:12:47 - main - INFO] convection_zmax_loss  6.224e-01
+[19:12:47 - main - INFO] ic_new_layer_loss     1.125e-01
+[19:12:52 - main - INFO] -----------------------------------
+[19:12:52 - main - INFO] Iter: 300             Time: 0.329
+[19:12:52 - main - INFO] --------------------  -------------
+[19:12:52 - main - INFO] bed_temperature_loss  2.798e-02
+[19:12:52 - main - INFO] res_loss              5.811e-02
+[19:12:52 - main - INFO] convection_zmax_loss  4.516e-01
+[19:12:52 - main - INFO] ic_new_layer_loss     6.264e-02
+[19:12:58 - main - INFO] -----------------------------------
+[19:12:58 - main - INFO] Iter: 400             Time: 0.328
+[19:12:58 - main - INFO] --------------------  -------------
+[19:12:58 - main - INFO] bed_temperature_loss  2.409e-02
+[19:12:58 - main - INFO] res_loss              3.784e-02
+[19:12:58 - main - INFO] convection_zmax_loss  3.235e-01
+[19:12:58 - main - INFO] ic_new_layer_loss     5.290e-02
+[19:13:03 - main - INFO] -----------------------------------
+[19:13:03 - main - INFO] Iter: 500             Time: 0.332
+[19:13:03 - main - INFO] --------------------  -------------
+[19:13:03 - main - INFO] bed_temperature_loss  3.286e-02
+[19:13:03 - main - INFO] res_loss              1.971e-02
+[19:13:03 - main - INFO] convection_zmax_loss  1.506e-01
+[19:13:03 - main - INFO] ic_new_layer_loss     3.974e-02
+[19:13:09 - main - INFO] -----------------------------------
+[19:13:09 - main - INFO] Iter: 600             Time: 0.330
+[19:13:09 - main - INFO] --------------------  -------------
+[19:13:09 - main - INFO] bed_temperature_loss  2.866e-02
+[19:13:09 - main - INFO] res_loss              8.975e-03
+[19:13:09 - main - INFO] convection_zmax_loss  1.977e-01
+[19:13:09 - main - INFO] ic_new_layer_loss     3.584e-02
+[19:13:14 - main - INFO] -----------------------------------
+[19:13:14 - main - INFO] Iter: 700             Time: 0.348
+[19:13:14 - main - INFO] --------------------  -------------
+[19:13:14 - main - INFO] bed_temperature_loss  2.621e-02
+[19:13:14 - main - INFO] res_loss              6.442e-03
+[19:13:14 - main - INFO] convection_zmax_loss  9.612e-02
+[19:13:14 - main - INFO] ic_new_layer_loss     3.317e-02
+[19:13:20 - main - INFO] -----------------------------------
+[19:13:20 - main - INFO] Iter: 800             Time: 0.343
+[19:13:20 - main - INFO] --------------------  -------------
+[19:13:20 - main - INFO] bed_temperature_loss  1.777e-02
+[19:13:20 - main - INFO] res_loss              4.993e-03
+[19:13:20 - main - INFO] convection_zmax_loss  1.116e-01
+[19:13:20 - main - INFO] ic_new_layer_loss     2.824e-02
+[19:13:27 - main - INFO] -----------------------------------
+[19:13:27 - main - INFO] Iter: 900             Time: 0.372
+[19:13:27 - main - INFO] --------------------  -------------
+[19:13:27 - main - INFO] bed_temperature_loss  2.205e-02
+[19:13:27 - main - INFO] res_loss              3.846e-03
+[19:13:27 - main - INFO] convection_zmax_loss  8.852e-02
+[19:13:27 - main - INFO] ic_new_layer_loss     2.817e-02
+[19:13:33 - main - INFO] -----------------------------------
+[19:13:33 - main - INFO] Iter: 1000            Time: 0.342
+[19:13:33 - main - INFO] --------------------  -------------
+[19:13:33 - main - INFO] bed_temperature_loss  2.144e-02
+[19:13:33 - main - INFO] res_loss              3.399e-03
+[19:13:33 - main - INFO] convection_zmax_loss  2.416e-01
+[19:13:33 - main - INFO] ic_new_layer_loss     2.453e-02
+[19:13:39 - main - INFO] -----------------------------------
+[19:13:39 - main - INFO] Iter: 1100            Time: 0.346
+[19:13:39 - main - INFO] --------------------  -------------
+[19:13:39 - main - INFO] bed_temperature_loss  2.098e-02
+[19:13:39 - main - INFO] res_loss              3.279e-03
+[19:13:39 - main - INFO] convection_zmax_loss  1.530e+00
+[19:13:39 - main - INFO] ic_new_layer_loss     2.050e-02
+[19:13:45 - main - INFO] -----------------------------------
+[19:13:45 - main - INFO] Iter: 1200            Time: 0.341
+[19:13:45 - main - INFO] --------------------  -------------
+[19:13:45 - main - INFO] bed_temperature_loss  8.567e-03
+[19:13:45 - main - INFO] res_loss              1.121e-01
+[19:13:45 - main - INFO] convection_zmax_loss  4.745e+01
+[19:13:45 - main - INFO] ic_new_layer_loss     1.199e-01
+[19:13:51 - main - INFO] -----------------------------------
+[19:13:51 - main - INFO] Iter: 1300            Time: 0.339
+[19:13:51 - main - INFO] --------------------  -------------
+[19:13:51 - main - INFO] bed_temperature_loss  2.141e-02
+[19:13:51 - main - INFO] res_loss              3.448e-03
+[19:13:51 - main - INFO] convection_zmax_loss  1.081e-01
+[19:13:51 - main - INFO] ic_new_layer_loss     3.351e-02
+[19:13:57 - main - INFO] -----------------------------------
+[19:13:57 - main - INFO] Iter: 1400            Time: 0.337
+[19:13:57 - main - INFO] --------------------  -------------
+[19:13:57 - main - INFO] bed_temperature_loss  2.159e-02
+[19:13:57 - main - INFO] res_loss              3.270e-03
+[19:13:57 - main - INFO] convection_zmax_loss  6.544e-02
+[19:13:57 - main - INFO] ic_new_layer_loss     2.817e-02
+[19:14:03 - main - INFO] -----------------------------------
+[19:14:03 - main - INFO] Iter: 1500            Time: 0.342
+[19:14:03 - main - INFO] --------------------  -------------
+[19:14:03 - main - INFO] bed_temperature_loss  1.630e-02
+[19:14:03 - main - INFO] res_loss              3.572e-03
+[19:14:03 - main - INFO] convection_zmax_loss  1.175e-01
+[19:14:03 - main - INFO] ic_new_layer_loss     2.483e-02
+[19:14:08 - main - INFO] -----------------------------------
+[19:14:08 - main - INFO] Iter: 1600            Time: 0.353
+[19:14:08 - main - INFO] --------------------  -------------
+[19:14:08 - main - INFO] bed_temperature_loss  1.702e-02
+[19:14:08 - main - INFO] res_loss              2.379e-03
+[19:14:08 - main - INFO] convection_zmax_loss  4.259e-01
+[19:14:08 - main - INFO] ic_new_layer_loss     2.530e-02
+[19:14:14 - main - INFO] -----------------------------------
+[19:14:14 - main - INFO] Iter: 1700            Time: 0.343
+[19:14:14 - main - INFO] --------------------  -------------
+[19:14:14 - main - INFO] bed_temperature_loss  1.865e-02
+[19:14:14 - main - INFO] res_loss              2.190e-03
+[19:14:14 - main - INFO] convection_zmax_loss  1.374e-01
+[19:14:14 - main - INFO] ic_new_layer_loss     2.191e-02
+[19:14:20 - main - INFO] -----------------------------------
+[19:14:20 - main - INFO] Iter: 1800            Time: 0.353
+[19:14:20 - main - INFO] --------------------  -------------
+[19:14:20 - main - INFO] bed_temperature_loss  1.031e-02
+[19:14:20 - main - INFO] res_loss              2.134e-03
+[19:14:20 - main - INFO] convection_zmax_loss  3.730e+00
+[19:14:20 - main - INFO] ic_new_layer_loss     2.257e-02
+[19:14:26 - main - INFO] -----------------------------------
+[19:14:26 - main - INFO] Iter: 1900            Time: 0.349
+[19:14:26 - main - INFO] --------------------  -------------
+[19:14:26 - main - INFO] bed_temperature_loss  1.351e-02
+[19:14:26 - main - INFO] res_loss              5.208e-02
+[19:14:26 - main - INFO] convection_zmax_loss  3.100e+02
+[19:14:26 - main - INFO] ic_new_layer_loss     1.282e-01
+I0303 19:14:32.251761 8289863744 checkpointer.py:134] Saving item to /Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/ckpt/MultiLayer_Test/2000.orbax-checkpoint-tmp-1741047272239527/default.
+I0303 19:14:32.263926 8289863744 utils.py:529] Renaming /Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/ckpt/MultiLayer_Test/2000.orbax-checkpoint-tmp-1741047272239527/default.orbax-checkpoint-tmp-1741047272252123 to /Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/ckpt/MultiLayer_Test/2000.orbax-checkpoint-tmp-1741047272239527/default
+I0303 19:14:32.264280 8289863744 utils.py:573] Finished saving checkpoint to `/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/ckpt/MultiLayer_Test/2000.orbax-checkpoint-tmp-1741047272239527/default`.
+I0303 19:14:32.266393 8289863744 utils.py:529] Renaming /Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/ckpt/MultiLayer_Test/2000.orbax-checkpoint-tmp-1741047272239527 to /Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/ckpt/MultiLayer_Test/2000
