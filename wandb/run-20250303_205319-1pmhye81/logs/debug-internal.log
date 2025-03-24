@@ -1,0 +1,15 @@
+{"time":"2025-03-03T20:53:19.994091-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/Users/akshayjacobthomas/Documents/GitHub/PINN_layerwise/wandb/run-20250303_205319-1pmhye81/logs/debug-core.log"}
+{"time":"2025-03-03T20:53:20.100717-05:00","level":"INFO","msg":"created new stream","id":"1pmhye81"}
+{"time":"2025-03-03T20:53:20.100751-05:00","level":"INFO","msg":"stream: started","id":"1pmhye81"}
+{"time":"2025-03-03T20:53:20.100765-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"1pmhye81"}
+{"time":"2025-03-03T20:53:20.100769-05:00","level":"INFO","msg":"handler: started","stream_id":"1pmhye81"}
+{"time":"2025-03-03T20:53:20.100798-05:00","level":"INFO","msg":"sender: started","stream_id":"1pmhye81"}
+{"time":"2025-03-03T20:53:20.24424-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-03T21:49:50.67916-05:00","level":"INFO","msg":"stream: closing","id":"1pmhye81"}
+{"time":"2025-03-03T21:49:50.679178-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-03T21:49:50.679823-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-03T21:49:51.064599-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-03T21:49:51.192378-05:00","level":"INFO","msg":"handler: closed","stream_id":"1pmhye81"}
+{"time":"2025-03-03T21:49:51.192407-05:00","level":"INFO","msg":"sender: closed","stream_id":"1pmhye81"}
+{"time":"2025-03-03T21:49:51.192394-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"1pmhye81"}
+{"time":"2025-03-03T21:49:51.192613-05:00","level":"INFO","msg":"stream: closed","id":"1pmhye81"}
